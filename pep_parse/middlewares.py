@@ -1,5 +1,4 @@
 from scrapy import signals
-from itemadapter import is_item, ItemAdapter
 
 
 class PepParseSpiderMiddleware:
@@ -13,7 +12,8 @@ class PepParseSpiderMiddleware:
         return None
 
     def process_spider_output(self, response, result, spider):
-        yield i
+        for i in result:
+            yield i
 
     def process_spider_exception(self, response, exception, spider):
         pass
